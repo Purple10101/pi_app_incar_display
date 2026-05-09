@@ -82,7 +82,7 @@ class MainWindow(QStackedWidget):
         if self._aa_process.state() != QProcess.NotRunning:
             return
         self.hide()
-        self._aa_process.start("openauto", [])
+        self._aa_process.start(os.path.expanduser("~/.hudiy/share/hudiy_run.sh"), [])
         self._overlay.show_at_corner()
 
     def launch_spotify(self):
