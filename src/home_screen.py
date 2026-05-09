@@ -11,11 +11,11 @@ ICON_SIZE = 360  # pixels
 
 # (icon_filename, action) icon_filename is relative to assets/icons/
 BUTTONS = [
-    ("wifi.png",  "wifi"),
+    ("wifi.png",    "wifi"),
     ("filesys.png", "files"),
-    ("AA.png", "android_auto"),
-    (None, None),
-    ("claude.png", "claude"),
+    ("AA.png",      "android_auto"),
+    ("spotify.png", "spotify"),
+    ("claude.png",  "claude"),
     (None, None),
 ]
 
@@ -95,3 +95,5 @@ class HomeScreen(QWidget):
             self.main_window.show_files()
         elif action == "android_auto":
             self.main_window.launch_android_auto()
+        elif action == "spotify":
+            self.main_window.launch_spotify()
