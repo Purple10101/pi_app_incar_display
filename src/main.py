@@ -27,6 +27,7 @@ class MainWindow(QStackedWidget):
 
         self._aa_process = QProcess(self)
         self._aa_process.finished.connect(self._on_android_auto_closed)
+        self._aa_process.errorOccurred.connect(lambda _: self._on_android_auto_closed())
 
     def show_wifi(self):
         self.setCurrentWidget(self.wifi)
