@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QStackedWidget
-from PyQt5.QtCore import Qt, QProcess
+from PyQt5.QtCore import QProcess
 from home_screen import HomeScreen
 from wifi_screen import WifiScreen
 from files_screen import FilesScreen
@@ -47,7 +47,6 @@ class MainWindow(QStackedWidget):
 
 def main():
     app = QApplication(sys.argv)
-    app.setAttribute(Qt.AA_EnableHighDpiScaling, True)
 
     window = MainWindow()
     window.showFullScreen()
