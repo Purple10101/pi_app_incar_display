@@ -3,7 +3,7 @@ import sys
 os.environ.setdefault("QT_QPA_PLATFORM", "xcb")
 
 from PyQt5.QtWidgets import QApplication, QStackedWidget
-from PyQt5.QtCore import QProcess, Qt
+from PyQt5.QtCore import QProcess
 from home_screen import HomeScreen
 from wifi_screen import WifiScreen
 from files_screen import FilesScreen
@@ -52,7 +52,6 @@ def main():
     app = QApplication(sys.argv)
 
     window = MainWindow()
-    window.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
     window.showMaximized()
 
     sys.exit(app.exec_())
