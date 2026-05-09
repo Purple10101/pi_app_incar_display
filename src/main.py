@@ -53,7 +53,7 @@ class MainWindow(QStackedWidget):
         if self._spotify_process.state() != QProcess.NotRunning:
             return
         self.hide()
-        self._spotify_process.start("chromium-browser", [
+        self._spotify_process.start("chromium", [
             "--kiosk",
             "--app=https://open.spotify.com",
         ])
