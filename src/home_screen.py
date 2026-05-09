@@ -93,3 +93,5 @@ class HomeScreen(QWidget):
             self.main_window.show_wifi()
         elif action == "files":
             self.main_window.show_files()
+        elif action == "android_auto":
+            self.main_window.launch_android_auto()
