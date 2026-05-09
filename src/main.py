@@ -3,7 +3,7 @@ import sys
 os.environ.setdefault("QT_QPA_PLATFORM", "xcb")
 
 from PyQt5.QtWidgets import QApplication, QStackedWidget
-from PyQt5.QtCore import QProcess
+from PyQt5.QtCore import QProcess, Qt
 from home_screen import HomeScreen
 from wifi_screen import WifiScreen
 from files_screen import FilesScreen
@@ -45,14 +45,15 @@ class MainWindow(QStackedWidget):
 
     def _on_android_auto_closed(self):
         self.setCurrentWidget(self.home)
-        self.showFullScreen()
+        self.showMaximized()
 
 
 def main():
     app = QApplication(sys.argv)
 
     window = MainWindow()
-    window.showFullScreen()
+    window.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+    window.showMaximized()
 
     sys.exit(app.exec_())
 
