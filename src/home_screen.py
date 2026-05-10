@@ -7,7 +7,7 @@ _ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 _BG_PATH = os.path.join(_ASSETS_DIR, "background.jpg")
 _ICONS_DIR = os.path.join(_ASSETS_DIR, "icons")
 
-ICON_SIZE = 360  # pixels
+ICON_SIZE = 200  # pixels
 
 # (icon_filename, action) icon_filename is relative to assets/icons/
 BUTTONS = [
@@ -53,7 +53,7 @@ class HomeScreen(QWidget):
 
     def _make_button(self, icon_file, action):
         btn = QPushButton()
-        btn.setMinimumSize(220, 400)
+        btn.setMinimumSize(140, 200)
         btn.setCursor(Qt.PointingHandCursor if action else Qt.ArrowCursor)
 
         if icon_file:

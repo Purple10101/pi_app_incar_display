@@ -81,6 +81,7 @@ class MainWindow(QStackedWidget):
     def launch_android_auto(self):
         if self._aa_process.state() != QProcess.NotRunning:
             return
+        self.showNormal()
         self.hide()
         self._aa_process.start(os.path.expanduser("~/.hudiy/share/hudiy_run.sh"), [])
         self._overlay.show_at_corner()
@@ -88,6 +89,7 @@ class MainWindow(QStackedWidget):
     def launch_spotify(self):
         if self._spotify_process.state() != QProcess.NotRunning:
             return
+        self.showNormal()
         self.hide()
         self._spotify_process.start("chromium", [
             "--kiosk",
