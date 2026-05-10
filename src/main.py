@@ -105,14 +105,14 @@ class MainWindow(QStackedWidget):
     def _on_external_closed(self):
         self._overlay.hide()
         self.setCurrentWidget(self.home)
-        self.showMaximized()
+        self.showFullScreen()
 
 
 def main():
     app = QApplication(sys.argv)
 
     window = MainWindow()
-    window.showMaximized()
+    window.showFullScreen()
 
     sys.exit(app.exec_())
 
