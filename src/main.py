@@ -83,7 +83,7 @@ class MainWindow(QStackedWidget):
             return
         self.showNormal()
         self.hide()
-        self._aa_process.start(os.path.expanduser("~/.hudiy/share/hudiy_run.sh"), [])
+        self._aa_process.start(os.path.expanduser("~/.hudiy/share/hudiy_launcher.sh"), [])
         self._overlay.show_at_corner()
 
     def launch_spotify(self):
