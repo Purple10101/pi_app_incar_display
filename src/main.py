@@ -1,4 +1,7 @@
+import glob
 import os
+import random
+import subprocess
 import sys
 if sys.platform != "win32":
     os.environ.setdefault("QT_QPA_PLATFORM", "xcb")
@@ -110,8 +113,31 @@ class MainWindow(QStackedWidget):
         self.showFullScreen()
 
 
+def _play_startup_media():
+    if sys.platform == "win32":
+        return
+    media_dir = os.path.join(os.path.dirname(__file__), "..", "assets", "sounds")
+    audio = (glob.glob(os.path.join(media_dir, "*.wav")) +
+             glob.glob(os.path.join(media_dir, "*.ogg")) +
+             glob.glob(os.path.join(media_dir, "*.mp3")))
+    video = (glob.glob(os.path.join(media_dir, "*.mp4")) +
+             glob.glob(os.path.join(media_dir, "*.mkv")) +
+             glob.glob(os.path.join(media_dir, "*.webm")))
+    all_media = audio + video
+    if not all_media:
+        return
+    pick = random.choice(all_media)
+    if pick in video:
+        subprocess.run(["mpv", "--fullscreen", "--really-quiet", "--no-osc", pick])
+    elif pick.endswith(".mp3"):
+        subprocess.Popen(["mpg123", "-q", pick])
+    else:
+        subprocess.Popen(["paplay", pick])
+
+
 def main():
     app = QApplication(sys.argv)
+    _play_startup_media()
 
     window = MainWindow()
     window.showFullScreen()
